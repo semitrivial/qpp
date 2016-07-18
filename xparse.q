@@ -1,7 +1,7 @@
 xparse:{
   tp:type x;
   if[0h=tp;
-    if[1=(#)x;:"(,)[",(xparse x[0]),"]"];
+    if[1=(#)x;:"(,)",(xparse x[0])];
     :"(",(string(*)x),")[",(";"sv xparse each 1_x),"]"
   ];
   if[11h=tp;
