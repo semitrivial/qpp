@@ -8,6 +8,12 @@ xparse:{
     if[1=(#)x;:"`",string (*)x];
   ];
   if[-11h=tp;:string x];
+  if[99h=tp;
+    if[1=(#)x;
+      :"((,)",(xparse key x),")!((,)",(xparse value x),")"
+    ];
+    :(xparse key x),"!",(xparse value x)
+  ];
   if[0<tp;:"(",(";"sv .Q.s1 each x),")"];
   :.Q.s1 x
  };

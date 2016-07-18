@@ -19,5 +19,8 @@ f "([]1 2 3)";
 f "([]c:1 2 3)";
 f "select from tbl";
 f "select c1 from tbl";
+f "select c1,c2 from tbl";
+f "select price:c1, qty:c2 from tbl";
+f "select price:c1+c2, qty:c1*c2 from tbl";
 
 value "\\\\";
