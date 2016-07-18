@@ -29,5 +29,6 @@ f "select price:c1+c2, qty:c1*c2 from tbl";
 f "select c1 by c2 from tbl";
 f "select foo:c1+c2 by bar:fnc[c1-c2] from tbl";
 f "select from tbl where i>0";
+f "select from tbl where i>0, c1>0";
 
 value "\\\\";
