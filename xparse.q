@@ -8,7 +8,7 @@ xparse:{
     ];
     if[0=(#)x;:"()"];
     if[((enlist)~(*)x) & (2<(#)x);:"(",(";" sv xparse each 1_x),")"];
-    :"(",(qstr(*)x),")[",(";"sv xparse each 1_x),"]"
+    :"(",(fncstr(*)x),")[",(";"sv xparse each 1_x),"]"
   ];
   if[11h=tp;
     if[1=(#)x;:"`",string (*)x];
@@ -17,6 +17,11 @@ xparse:{
   if[99h=tp;:qstr x];
   if[0<tp;:"(",(";"sv .Q.s1 each x),")"];
   :.Q.s1 x
+ };
+
+fncstr:{
+  if[-11h=type x;:string x];
+  qstr x
  };
 
 qstr:{
