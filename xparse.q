@@ -4,7 +4,7 @@ xparse:{
     if[1=(#)x;
       if[0h=type x[0];
         if[1=count x[0]; :"(,)",.Q.s1 x[0][0]];
-        :"(,)",xparse x[0]
+        :"(",(";" sv .Q.s1 each x[0]),")"
       ];
       if[(11h=type x[0]) & (1<count x[0]);:xparse x[0]];
       :"(,)",xparse x[0]
