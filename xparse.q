@@ -8,7 +8,7 @@ xparse:{
     ];
     if[0=(#)x;:"()"];
     if[((enlist)~(*)x) & (2<(#)x);:"(",(";" sv xparse each 1_x),")"];
-    :"(",(string(*)x),")[",(";"sv xparse each 1_x),"]"
+    :"(",(qstr(*)x),")[",(";"sv xparse each 1_x),"]"
   ];
   if[11h=tp;
     if[1=(#)x;:"`",string (*)x];
