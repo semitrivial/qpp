@@ -12,7 +12,15 @@ defunc:{[x;vars]
 
 strip_enlists:{[x;vars]
   tp:type x;
-  if[0h=tp;:.z.s[;vars] each x];
+  if[0h=tp;
+    if[1=(#)x;
+      if[1=(#)x[0];
+        :(enlist;(enlist),x[0][0])
+      ];
+      :x[0]
+    ];
+    :.z.s[;vars] each x
+  ];
   if[11h=tp;:enlist , x];
   if[99h=tp;:(!;.z.s[;vars] key x;.z.s[;vars] value x)];
   x 
