@@ -10,7 +10,8 @@ f:{[x]
 
 tbl:([]c1:1 2 3;c2:4 5 6);
 ktbl:([id:1 2 3]c1:4 5 6; c2:7 8 9);
-fnc:{x*x}
+fnc:{x*x};
+n:0;
 
 f "1";
 f each ("0b";"0xff";"0h";"0i";"0j";"0e";"0f");
@@ -38,9 +39,10 @@ f "1;1";
 f "foo:\"bar\";foo";
 f "x:1;if[x=1;x:2];x";
 f "value \"\\\\t 50\"; value\"\\\\t\"";
+f "(enlist) enlist[=;n;1]"
 
 t:([]c:1 2 3;d:0 1 2);
 c:`d;
-xparse defunc parse "functional select from x where c=1";
+//xparse defunc parse "functional select from x where c=1";
 
 value "\\\\";
