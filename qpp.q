@@ -30,6 +30,9 @@ strip_enlists:{
  };
 
 transform_keyval:{[k;v]
+  if[(`x~key) & (0h=type v) & (11h=type v[0]);
+    :`key`val ! ((,)v[0];v[0])
+  ];
   `key`val ! (strip_enlists k;strip_enlists v)
  };
 
