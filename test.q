@@ -37,5 +37,6 @@ f "1+x:2"
 f "1;1";
 f "foo:\"bar\";foo";
 f "x:1;if[x=1;x:2];x";
+f "value \"\\\\t 50\"; value\"\\\\t\"";
 
 value "\\\\";
