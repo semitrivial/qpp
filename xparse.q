@@ -35,3 +35,7 @@ chmap:{[f;x]
   if[1=(#)x;:"(,)",f[x[0]]];
   "(",(";" sv f each x),")"
  };
+
+// Taken from https://github.com/patmok/unparse
+break:{$[type x;0b;vchar x;0b;not x~()]};
+vchar:(1# 11h)~type';  / char vector?

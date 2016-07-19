@@ -1,4 +1,4 @@
-\l unparse.q
+\l xparse.q
 
 defunc:{
   if[break x;
@@ -20,7 +20,7 @@ qpp:{[f]
   code:last (.)f;
   code:code[1+(!)((#)code)-2];
   code:parse code;
-  :code:defunc[code];
-  code:"k){",(unparse code),"}";
+  code:defunc[code];
+  code:"{",(xparse code),"}";
   value code
  };
