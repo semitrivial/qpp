@@ -1,4 +1,4 @@
-\l xparse.q
+\l qpp.q
 
 f:{[x]
   if[-10h=type x;x:(,)x];
@@ -38,5 +38,9 @@ f "1;1";
 f "foo:\"bar\";foo";
 f "x:1;if[x=1;x:2];x";
 f "value \"\\\\t 50\"; value\"\\\\t\"";
+
+t:([]c:1 2 3;d:0 1 2);
+c:`d;
+xparse defunc parse "functional select from x where c=1";
 
 value "\\\\";

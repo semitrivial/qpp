@@ -1,16 +1,16 @@
 \l xparse.q
 
-defunc:{[x;vars]
+defunc:{
   if[break x;
     if[`functional~(*)x;
-      :(x[1][0]),strip_enlists[;vars] each 1_x[1]
+      :(x[1][0]),strip_enlists each 1_x[1]
     ];
-    :((,)(*)x) , .z.s[;vars] each 1_x;
+    :((,)(*)x) , .z.s each 1_x;
   ];
   x
  };
 
-strip_enlists:{[x;vars]
+strip_enlists:{
   tp:type x;
   if[0h=tp;
     if[1=(#)x;
@@ -19,20 +19,18 @@ strip_enlists:{[x;vars]
       ];
       :x[0]
     ];
-    :.z.s[;vars] each x
+    :.z.s each x
   ];
   if[11h=tp;:enlist , x];
-  if[99h=tp;:(!;.z.s[;vars] key x;.z.s[;vars] value x)];
+  if[99h=tp;:(!;.z.s key x;.z.s value x)];
   x 
  };
 
 qpp:{[f]
-  val:(.)f;
-  vars:val[1];
-  code:last val;
+  code:last (.)f;
   code:code[1+(!)((#)code)-2];
   code:parse code;
-  code:defunc[code;vars];
+  code:defunc[code];
   code:"{",(xparse code),"}";
   value code
  };
