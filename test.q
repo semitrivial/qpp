@@ -12,4 +12,6 @@
 
 {functional select from x where c=1} f {(?)[x;(enlist)enlist[=;c;1];0b;()]};
 
+{functional select by c from x} f {(?)[x;();(!)[(enlist)[c];(enlist)[c]];()]};
+
 \\
