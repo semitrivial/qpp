@@ -26,6 +26,7 @@ xparse:{
 
 fncstr:{
   if[-11h=type x;:string x];
+  if[0h=type x;:xparse x];
   qstr x
  };
 
