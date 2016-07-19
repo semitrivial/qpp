@@ -22,8 +22,15 @@ strip_enlists:{
     :.z.s each x
   ];
   if[11h=tp;:enlist , x];
-  if[99h=tp;:(!;.z.s key x;.z.s value x)];
+  if[99h=tp;
+    keyval:transform_keyval[key x;value x];
+    :(!;keyval`key;keyval`val)
+  ];
   x 
+ };
+
+transform_keyval:{[k;v]
+  `key`val ! (strip_enlists k;strip_enlists v)
  };
 
 qpp:{[f]
