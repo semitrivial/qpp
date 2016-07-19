@@ -2,7 +2,9 @@
 
 defunc:{[x;vars]
   if[break x;
-    if[`functional~(*)x;:strip_enlists[;vars] each 1_x];
+    if[`functional~(*)x;
+      :(x[1][0]),strip_enlists[;vars] each 1_x[1]
+    ];
     :((,)(*)x) , .z.s[;vars] each 1_x;
   ];
   x
