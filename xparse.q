@@ -2,7 +2,7 @@ xparse:{[x;fnc]
   tp:type x;
   if[0h=tp;
     if[1=(#)x;
-      if[0h=type x[0];:chmap[.Q.s1;x[0]]];
+      if[0h=type x[0];:chmap[qstr[;fnc];x[0]]];
       if[(11h=type x[0]) & (1<count x[0]);:xparse[;fnc] x[0]];
       :"(,)",xparse[;fnc] x[0]
     ];
