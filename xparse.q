@@ -13,7 +13,7 @@ xparse:{[x;fnc]
         :"(enlist)enlist[",(";"sv xparse[;fnc] each 1_x[1]),"]"
       ];
     ];
-    if[`functional~(*)x;fnc:1b];
+    if[`functional~(*)x;:xparse[x[1];1b]];
     :"(",(fncstr[;fnc](*)x),")[",(";"sv xparse[;fnc] each 1_x),"]"
   ];
   if[-11h=tp;:string x];
