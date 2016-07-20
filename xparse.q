@@ -18,7 +18,7 @@ xparse:{[x;fnc]
   ];
   if[-11h=tp;:string x];
   if[99h=tp;:qstr[;fnc] x];
-  if[(0<tp) & (20>tp);:"(",(";"sv .Q.s1 each x),")"];
+  if[(0<tp) & (20>tp);:"(",(";"sv qstr[;fnc] each x),")"];
   :.Q.s1 x
  };
 
