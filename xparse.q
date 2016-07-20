@@ -15,9 +15,6 @@ xparse:{
     ];
     :"(",(fncstr(*)x),")[",(";"sv xparse each 1_x),"]"
   ];
-  if[11h=tp;
-    if[1=(#)x;:"`",string (*)x];
-  ];
   if[-11h=tp;:string x];
   if[99h=tp;:qstr x];
   if[(0<tp) & (20>tp);:"(",(";"sv .Q.s1 each x),")"];
