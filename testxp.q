@@ -1,11 +1,11 @@
 \l qpp.q
 
 f:{[x]
+  0N!"Testing <<",x,">>";
   if[-10h=type x;x:(,)x];
   X1:value x;
-  X2:value xparse parse x;
+  X2:value xparse[;0b] parse x;
   if[not[X1~X2];raise];
-  0N!"Testing <<",x,">>: Success";
  };
 
 tbl:([]c1:1 2 3;c2:4 5 6);

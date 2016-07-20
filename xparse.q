@@ -1,19 +1,20 @@
-xparse:{
+xparse:{[x;fnc]
   tp:type x;
   if[0h=tp;
     if[1=(#)x;
       if[0h=type x[0];:chmap[.Q.s1;x[0]]];
-      if[(11h=type x[0]) & (1<count x[0]);:xparse x[0]];
-      :"(,)",xparse x[0]
+      if[(11h=type x[0]) & (1<count x[0]);:xparse[;fnc] x[0]];
+      :"(,)",xparse[;fnc] x[0]
     ];
     if[0=(#)x;:"()"];
     if[(enlist)~(*)x;
-      if[2<(#)x;:"(",(";" sv xparse each 1_x),")"];
+      if[2<(#)x;:"(",(";" sv xparse[;fnc] each 1_x),")"];
       if[(2=(#)x) & ((enlist)~(*)x[1]);
-        :"(enlist)enlist[",(";"sv xparse each 1_x[1]),"]"
+        :"(enlist)enlist[",(";"sv xparse[;fnc] each 1_x[1]),"]"
       ];
     ];
-    :"(",(fncstr(*)x),")[",(";"sv xparse each 1_x),"]"
+    if[`functional~(*)x;fnc:1b];
+    :"(",(fncstr[;fnc](*)x),")[",(";"sv xparse[;fnc] each 1_x),"]"
   ];
   if[-11h=tp;:string x];
   if[99h=tp;:qstr x];
@@ -21,9 +22,9 @@ xparse:{
   :.Q.s1 x
  };
 
-fncstr:{
+fncstr:{[x;fnc]
   if[-11h=type x;:string x];
-  if[0h=type x;:xparse x];
+  if[0h=type x;:xparse[;fnc] x];
   qstr x
  };
 
