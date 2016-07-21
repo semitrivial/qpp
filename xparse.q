@@ -2,7 +2,7 @@ xparse:{[x;fnc]
   tp:type x;
   if[0h=tp;
     if[1=(#)x;
-      if[0h=type x[0];:chmap[qstr[;fnc];x[0]]];
+      if[0h=type x[0];:chmap_list[qstr[;fnc];x[0]]];
       if[(11h=type x[0]) & (1<count x[0]);:xparse[;fnc] x[0]];
       :"(,)",xparse[;fnc] x[0]
     ];
@@ -14,7 +14,7 @@ xparse:{[x;fnc]
       ];
     ];
     if[`functional~(*)x;:xparse[x[1];1b]];
-    :"(",(fncstr[;fnc](*)x),")[",(";"sv xparse[;fnc] each 1_x),"]"
+    :"(",(fncstr[;fnc](*)x),")[",(chmap[xparse[;fnc];1_x]),"]"
   ];
   if[-11h=tp;:string x];
   if[99h=tp;:qstr[;fnc] x];
@@ -31,7 +31,7 @@ fncstr:{[x;fnc]
 
 qstr:{[x;fnc]
   tp:type x;
-  if[(0h<=tp) & (20h>tp);:chmap[qstr[;fnc];x]];
+  if[(0h<=tp) & (20h>tp);:chmap_list[qstr[;fnc];x]];
   if[99h=tp;:"(",(qstr[;fnc] key x),")!",qstr[;fnc] value x];
   if[(-11h=tp) & fnc;
     :string x
@@ -39,9 +39,18 @@ qstr:{[x;fnc]
   .Q.s1 x
  };
 
+filter_projections:{
+  if[104h=type x;:""];
+  :x
+ };
+
 chmap:{[f;x]
+  ";" sv filter_projections each f each x
+ };
+
+chmap_list:{[f;x]
   if[1=(#)x;:"(,)",f[x[0]]];
-  "(",(";" sv f each x),")"
+  "(",chmap[f;x],")"
  };
 
 // Taken from https://github.com/patmok/unparse

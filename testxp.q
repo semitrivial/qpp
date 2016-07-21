@@ -11,6 +11,7 @@ f:{[x]
 tbl:([]c1:1 2 3;c2:4 5 6);
 ktbl:([id:1 2 3]c1:4 5 6; c2:7 8 9);
 fnc:{x*x};
+fncxy:{x+y};
 n:0;
 
 f "1";
@@ -39,8 +40,9 @@ f "1;1";
 f "foo:\"bar\";foo";
 f "x:1;if[x=1;x:2];x";
 f "value \"\\\\t 50\"; value\"\\\\t\"";
-f "(enlist) enlist[=;n;1]"
-f "+/[1 2 3]"
+f "(enlist) enlist[=;n;1]";
+f "+/[1 2 3]";
+f "fncxy[;0]";
 
 t:([]c:1 2 3;d:0 1 2);
 c:`d;
