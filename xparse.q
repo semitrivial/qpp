@@ -23,6 +23,7 @@ xparse:{[x;fnc]
  };
 
 fncstr:{[x;fnc]
+  if[100h=type x;:string qpp x];
   if[-11h=type x;:string x];
   if[0h=type x;:xparse[;fnc] x];
   qstr[;fnc] x
