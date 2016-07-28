@@ -22,6 +22,8 @@ g:{f[x;x]};
 
 {[x;y;z]1} f {[x;y;z]1};
 
+{[]1} f {[]1};
+
 {[tbl;c]functional select c from tbl} f {[tbl;c](?)[tbl;();0b;((,)c)!(,)c]};
 
 g {if[x>0;:x+1];x};
