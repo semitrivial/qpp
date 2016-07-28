@@ -18,6 +18,8 @@ g:{f[x;x]};
 
 {functional ([]x:1 2 3)} f {(+:)[(!)[(,)(x);(enlist)[(1;2;3)]]]};
 
+{[foo]foo} f {[foo]foo};
+
 g {if[x>0;:x+1];x};
 
 g {if[x>0;:x+1];:x};
