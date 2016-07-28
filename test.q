@@ -19,10 +19,13 @@ g:{f[x;x]};
 {functional ([]x:1 2 3)} f {(+:)[(!)[(,)(x);(enlist)[(1;2;3)]]]};
 
 {[foo]foo} f {[foo]foo};
+{[foo]functional foo} f {[foo]foo};
 
 {[x;y;z]1} f {[x;y;z]1};
+{[x;y;z]functional 1} f {[x;y;z]1};
 
 {[]1} f {[]1};
+{[]functional 1} f {[]1};
 
 {[tbl;c]functional select c from tbl} f {[tbl;c](?)[tbl;();0b;((,)c)!(,)c]};
 
