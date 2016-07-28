@@ -20,6 +20,10 @@ g:{f[x;x]};
 
 {[foo]foo} f {[foo]foo};
 
+{[x;y;z]1} f {[x;y;z]1};
+
+{[tbl;c]functional select c from tbl} f {[tbl;c](?)[tbl;();0b;((,)c)!(,)c]};
+
 g {if[x>0;:x+1];x};
 
 g {if[x>0;:x+1];:x};
