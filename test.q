@@ -10,11 +10,11 @@
 
 g:{f[x;x]};
 
-{functional select c from x} f {(?)[x;();0b;((,)c)!(,)c]};
+{functional select c from x} f {(?)[x;();0b;((),c)!(),c]};
 
 {functional select from x where c=1} f {(?)[x;(,)(=;c;1);0b;()]};
 
-{functional select by c from x} f {(?)[x;();((,)c)!(,)c;()]};
+{functional select by c from x} f {(?)[x;();((),c)!(),c;()]};
 
 {functional ([]x:1 2 3)} f {(+:)[(!)[(,)(x);(enlist)[(1;2;3)]]]};
 
@@ -27,7 +27,7 @@ g:{f[x;x]};
 {[]1} f {[]1};
 {[]functional 1} f {[]1};
 
-{[tbl;c]functional select c from tbl} f {[tbl;c](?)[tbl;();0b;((,)c)!(,)c]};
+{[tbl;c]functional select c from tbl} f {[tbl;c](?)[tbl;();0b;((),c)!(),c]};
 
 g {if[x>0;:x+1];x};
 
